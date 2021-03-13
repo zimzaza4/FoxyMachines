@@ -1,10 +1,10 @@
 package me.gallowsdove.foxymachines.utils;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import me.gallowsdove.foxymachines.FoxyMachines;
-import me.gallowsdove.foxymachines.Items;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
+import javax.annotation.ParametersAreNonnullByDefault;
+
 import org.apache.commons.lang.Validate;
 import org.bukkit.ChatColor;
 import org.bukkit.NamespacedKey;
@@ -13,9 +13,10 @@ import org.bukkit.entity.Player;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
+import lombok.Getter;
+import me.gallowsdove.foxymachines.FoxyMachines;
+import me.gallowsdove.foxymachines.Items;
+import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 
 public class QuestUtils {
     public static NamespacedKey KEY = new NamespacedKey(FoxyMachines.getInstance(), "quest");
@@ -187,117 +188,126 @@ public class QuestUtils {
 
         switch (id) {
             case 0:
-                return "Bat";
+                return "蝙蝠";
             case 1:
-                return "Bee";
+                return "蜜蜂";
             case 2:
-                return "Blaze";
+                return "烈焰人";
             case 3:
-                return "Cat";
+                return "猫";
             case 4:
-                return "Chicken";
+                return "鸡";
             case 5:
-                return "Cave Spider";
+                return "洞穴蜘蛛";
             case 6:
-                return "Cod";
+                return "生鳕鱼";
             case 7:
-                return "Cow";
+                return "牛";
             case 8:
-                return "Creeper";
+                return "苦力怕";
             case 9:
-                return "Dolphin";
+                return "海豚";
             case 10:
-                return "Donkey";
+                return "驴";
             case 11:
-                return "Drowned";
+                return "溺尸";
             case 12:
-                return "Enderman";
+                return "末影人";
             case 13:
-                return "Fox";
+                return "狐狸";
             case 14:
-                return "Ghast";
+                return "恶魂";
             case 15:
-                return "Guardian";
+                return "守卫者";
             case 16:
-                return "Hoglin";
+                return "疣猪兽";
             case 17:
-                return "Husk";
+                return "尸壳";
             case 18:
-                return "Horse";
+                return "马";
             case 19:
-                return "Iron Golem";
+                return "铁傀儡";
             case 20:
-                return "Llama";
+                return "羊驼";
             case 21:
-                return "Magma Cube";
+                return "岩浆怪";
             case 22:
-                return "Mushroom Cow";
+                return "哞菇";
             case 23:
-                return "Ocelot";
+                return "豹猫";
             case 24:
-                return "Panda";
+                return "熊猫";
             case 25:
-                return "Parrot";
+                return "鹦鹉";
             case 26:
-                return "Phantom";
+                return "幻翼";
             case 27:
-                return "Pig";
+                return "猪";
             case 28:
-                return "Piglin";
+                return "猪灵";
             case 29:
-                return "Piglin Brute";
+                return "猪灵蛮兵";
             case 30:
-                return "Pillager";
+                return "掠夺者";
             case 31:
-                return "Polar Bear";
+                return "北极熊";
             case 32:
-                return "Pufferfish";
+                return "河豚";
             case 33:
-                return "Rabbit";
+                return "兔子";
             case 34:
-                return "Salmon";
+                return "生鲑鱼";
             case 35:
-                return "Sheep";
+                return "羊";
             case 36:
-                return "Silverfish";
+                return "蠹虫";
             case 37:
-                return "Skeleton";
+                return "骷髅";
             case 38:
-                return "Slime";
+                return "史莱姆";
             case 39:
-                return "Snowman";
+                return "雪人";
             case 40:
-                return "Spider";
+                return "蜘蛛";
             case 41:
-                return "Squid";
+                return "鱿鱼";
             case 42:
-                return "Stray";
+                return "流浪者";
             case 43:
-                return "Strider";
+                return "炽足兽";
             case 44:
-                return "Turtle";
+                return "海龟";
             case 45:
-                return "Tropical Fish";
+                return "热带鱼";
             case 46:
-                return "Witch";
+                return "凋零";
             case 47:
-                return "Wither Skeleton";
+                return "凋零骷髅";
             case 48:
-                return "Wolf";
+                return "狐狸";
             case 49:
-                return "Zoglin";
+                return "僵尸疣猪兽";
             case 50:
-                return "Zombie";
+                return "僵尸";
             case 51:
-                return "Zombified Piglin";
+                return "僵尸猪人";
         }
-        return "Fox";
+        return "狐狸";
     }
 }
 
-@AllArgsConstructor
 class Line {
-    @Getter
+    public Line(String firstHalf, String secondHalf) {
+		this.firstHalf = firstHalf;
+		this.secondHalf = secondHalf;
+	}
+	public String getSecondHalf() {
+		return secondHalf;
+	}
+	public String getFirstHalf() {
+		return firstHalf;
+	}
+	@Getter
     private final String firstHalf;
     @Getter
     private final String secondHalf;

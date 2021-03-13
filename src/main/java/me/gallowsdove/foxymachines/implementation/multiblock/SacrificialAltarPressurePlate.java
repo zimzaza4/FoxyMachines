@@ -41,10 +41,10 @@ public class SacrificialAltarPressurePlate extends SlimefunItem {
                 Block b = e.getBlockPlaced();
                 if (isComplete(b)) {
                     BlockStorage.addBlockInfo(b, "complete", "true");
-                    e.getPlayer().sendMessage(ChatColor.LIGHT_PURPLE + "The Sacrificial Altar has been activated.");
+                    e.getPlayer().sendMessage(ChatColor.LIGHT_PURPLE + "魔法祭坛已经激活");
                 } else {
                     BlockStorage.addBlockInfo(b, "complete", "false");
-                    e.getPlayer().sendMessage(ChatColor.LIGHT_PURPLE + "Finish your Altar and click this block again to activate it.");
+                    e.getPlayer().sendMessage(ChatColor.LIGHT_PURPLE + "补全您的祭坛方块结构, 然后再次单击此方块将其激活。");
                 }
             }
         };
@@ -58,10 +58,10 @@ public class SacrificialAltarPressurePlate extends SlimefunItem {
                 if (BlockStorage.getLocationInfo(b.getLocation(), "complete").equals("false")) {
                     if (isComplete(b)) {
                         BlockStorage.addBlockInfo(b, "complete", "true");
-                        e.getPlayer().sendMessage(ChatColor.LIGHT_PURPLE + "The Sacrificial Altar has been activated.");
+                        e.getPlayer().sendMessage(ChatColor.LIGHT_PURPLE + "魔法祭坛已经激活");
                     } else {
                         BlockStorage.addBlockInfo(b, "complete", "false");
-                        e.getPlayer().sendMessage(ChatColor.LIGHT_PURPLE + "The Altar is not finished!");
+                        e.getPlayer().sendMessage(ChatColor.LIGHT_PURPLE + "祭坛方块结构方块未补全!");
                     }
                 }
 
@@ -76,7 +76,7 @@ public class SacrificialAltarPressurePlate extends SlimefunItem {
             public void onPlayerBreak(@Nonnull BlockBreakEvent e, @Nonnull ItemStack item, @Nonnull List<ItemStack> drops) {
                 BlockStorage.addBlockInfo(e.getBlock(), "complete", null);
                 BlockStorage.clearBlockInfo(e.getBlock());
-                e.getPlayer().sendMessage(ChatColor.LIGHT_PURPLE + "The Altar has been broken!");
+                e.getPlayer().sendMessage(ChatColor.LIGHT_PURPLE + "魔法祭坛已被破坏!");
             }
         };
     }

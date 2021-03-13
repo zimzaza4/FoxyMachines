@@ -1,6 +1,13 @@
 package me.gallowsdove.foxymachines;
 
-import io.github.mooy1.infinitylib.bstats.bukkit.Metrics;
+import java.io.File;
+import java.io.IOException;
+
+import javax.annotation.Nonnull;
+
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.java.JavaPlugin;
+
 import io.github.mooy1.infinitylib.command.CommandManager;
 import io.github.mooy1.infinitylib.core.PluginUtils;
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
@@ -8,13 +15,16 @@ import lombok.SneakyThrows;
 import me.gallowsdove.foxymachines.commands.QuestCommand;
 import me.gallowsdove.foxymachines.commands.SacrificialAltarCommand;
 import me.gallowsdove.foxymachines.implementation.machines.ForcefieldDome;
-import me.gallowsdove.foxymachines.listeners.*;
+import me.gallowsdove.foxymachines.listeners.ArmorListener;
+import me.gallowsdove.foxymachines.listeners.BerryBushListener;
+import me.gallowsdove.foxymachines.listeners.BoostedRailListener;
+import me.gallowsdove.foxymachines.listeners.ChunkLoaderListener;
+import me.gallowsdove.foxymachines.listeners.ForcefieldListener;
+import me.gallowsdove.foxymachines.listeners.PoseidonsFishingRodListener;
+import me.gallowsdove.foxymachines.listeners.RemoteControllerListener;
+import me.gallowsdove.foxymachines.listeners.SacrificialAltarListener;
+import me.gallowsdove.foxymachines.listeners.SwordListener;
 import me.gallowsdove.foxymachines.tickers.QuestTicker;
-import org.bukkit.Bukkit;
-import org.bukkit.plugin.java.JavaPlugin;
-
-import javax.annotation.Nonnull;
-import java.io.File;
 
 public class FoxyMachines extends JavaPlugin implements SlimefunAddon {
     private static FoxyMachines instance;
@@ -31,8 +41,6 @@ public class FoxyMachines extends JavaPlugin implements SlimefunAddon {
         CommandManager.setup("foxymachines", "foxymachines.info", "/fm, /foxy",
                 new SacrificialAltarCommand(), new QuestCommand());
 
-        Metrics metrics = PluginUtils.setupMetrics(10568);
-
         getServer().getPluginManager().registerEvents(new ChunkLoaderListener(), this);
         getServer().getPluginManager().registerEvents(new BoostedRailListener(), this);
         getServer().getPluginManager().registerEvents(new BerryBushListener(), this);
@@ -47,7 +55,11 @@ public class FoxyMachines extends JavaPlugin implements SlimefunAddon {
         ResearchSetup.INSTANCE.init();
 
         this.folderPath = getDataFolder().getAbsolutePath() + File.separator + "data-storage" + File.separator;
-        ForcefieldDome.loadDomeLocations();
+        try {
+			ForcefieldDome.loadDomeLocations();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
         Bukkit.getScheduler().runTask(this, () -> ForcefieldDome.INSTANCE.setupDomes());
         Bukkit.getScheduler().scheduleSyncRepeatingTask(this, new QuestTicker(), 10, 120);
     }
@@ -55,7 +67,11 @@ public class FoxyMachines extends JavaPlugin implements SlimefunAddon {
     @SneakyThrows
     @Override
     public void onDisable() {
-        ForcefieldDome.saveDomeLocations();
+        try {
+			ForcefieldDome.saveDomeLocations();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
     }
 
     @Nonnull

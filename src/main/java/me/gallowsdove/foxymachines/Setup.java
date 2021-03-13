@@ -130,42 +130,42 @@ final class ItemSetup {
                 }, 1).register(FoxyMachines.getInstance());
         new SimpleMaterial(Items.BLOOD, FoxyRecipeType.SACRIFICIAL_ALTAR, new ItemStack[] {
                 null, null, null,
-                null, new CustomItem(Material.NETHERITE_SWORD, "&eMob Drop"), null,
+                null, new CustomItem(Material.NETHERITE_SWORD, "&e怪物掉落"), null,
                 null, null, null
                 }, 1).register(FoxyMachines.getInstance());
         new SimpleMaterial(Items.CURSED_RABBIT_PAW, FoxyRecipeType.SACRIFICIAL_ALTAR, new ItemStack[] {
                 null, null, null,
-                null, new CustomItem(Material.RABBIT_SPAWN_EGG, "&eRabbit Drop"), null,
+                null, new CustomItem(Material.RABBIT_SPAWN_EGG, "&e兔子掉落"), null,
                 null, null, null
                 }, 1).register(FoxyMachines.getInstance());
         new SimpleMaterial(Items.HUMAN_SKULL, FoxyRecipeType.SACRIFICIAL_ALTAR, new ItemStack[] {
                 null, null, null,
-                null, new CustomItem(Material.PLAYER_HEAD, "&ePlayer Drop"), null,
+                null, new CustomItem(Material.PLAYER_HEAD, "&e玩家掉落"), null,
                 null, null, null
                 }, 1).register(FoxyMachines.getInstance());
         new SimpleMaterial(Items.TROPICAL_FISH_SCALE, FoxyRecipeType.SACRIFICIAL_ALTAR, new ItemStack[] {
                 null, null, null,
-                null, new CustomItem(Material.TROPICAL_FISH, "&eTropical Fish Drop"), null,
+                null, new CustomItem(Material.TROPICAL_FISH, "&e热带鱼掉落"), null,
                 null, null, null
                 }, 1).register(FoxyMachines.getInstance());
         new SimpleMaterial(Items.POLAR_FOX_HIDE, FoxyRecipeType.SACRIFICIAL_ALTAR, new ItemStack[] {
                 null, null, null,
-                null, new CustomItem(Material.POLAR_BEAR_SPAWN_EGG, "&ePolar Fox Drop"), null,
+                null, new CustomItem(Material.POLAR_BEAR_SPAWN_EGG, "&e北极熊掉落"), null,
                 null, null, null
                 }, 1).register(FoxyMachines.getInstance());
         new SimpleMaterial(Items.MAGMA_ESSENCE, FoxyRecipeType.SACRIFICIAL_ALTAR, new ItemStack[] {
                 null, null, null,
-                null, new CustomItem(Material.MAGMA_CUBE_SPAWN_EGG, "&eMagma Cube Drop"), null,
+                null, new CustomItem(Material.MAGMA_CUBE_SPAWN_EGG, "&e岩浆怪掉落"), null,
                 null, null, null
                 }, 1).register(FoxyMachines.getInstance());
         new SimpleMaterial(Items.PARROT_FEATHER, FoxyRecipeType.SACRIFICIAL_ALTAR, new ItemStack[] {
                 null, null, null,
-                null, new CustomItem(Material.PARROT_SPAWN_EGG, "&eParrot Drop"), null,
+                null, new CustomItem(Material.PARROT_SPAWN_EGG, "&e鹦鹉掉落"), null,
                 null, null, null
                 }, 1).register(FoxyMachines.getInstance());
         new SimpleMaterial(Items.UNHOLY_WITHER_SKELETON_BONE, FoxyRecipeType.SACRIFICIAL_ALTAR, new ItemStack[] {
                 null, null, null,
-                null, new CustomItem(Material.WITHER_SKELETON_SPAWN_EGG, "&eWither Skeleton Drop"), null,
+                null, new CustomItem(Material.WITHER_SKELETON_SPAWN_EGG, "&e凋零骷髅掉落"), null,
                 null, null, null
                 }, 1).register(FoxyMachines.getInstance());
         new SimpleMaterial(Items.BLOOD_INFUSED_SKULL, RecipeType.ANCIENT_ALTAR, new ItemStack[] {

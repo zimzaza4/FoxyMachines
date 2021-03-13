@@ -332,6 +332,8 @@ public class PotionMixer extends SlimefunItem implements EnergyNetComponent {
                 } else {
                     return new PotionEffect[] {new PotionEffect(PotionEffectType.WEAKNESS, 90*20/d, 0)};
                 }
+		default:
+			break;
         }
         return new PotionEffect[] {};
     }
@@ -400,16 +402,18 @@ public class PotionMixer extends SlimefunItem implements EnergyNetComponent {
                 potionMeta.setBasePotionData(new PotionData(PotionType.UNCRAFTABLE, false, false));
                 switch(potion1.getType()){
                     case POTION:
-                        potionMeta.setDisplayName(ChatColor.AQUA + "Combined Potion");
+                        potionMeta.setDisplayName(ChatColor.AQUA + "混合药水");
                         break;
                     case LINGERING_POTION:
                         lore.add(ChatColor.RED + "The time shown is incorrect due to a Minecraft");
                         lore.add(ChatColor.RED + "bug, multiply it by 4 to get the real time.");
-                        potionMeta.setDisplayName(ChatColor.AQUA + "Combined Lingering Potion");
+                        potionMeta.setDisplayName(ChatColor.AQUA + "混合滞留药水");
                         break;
                     case SPLASH_POTION:
-                        potionMeta.setDisplayName(ChatColor.AQUA + "Combined Splash Potion");
+                        potionMeta.setDisplayName(ChatColor.AQUA + "混合喷溅型药水");
                         break;
+				default:
+					break;
                 }
                 potionMeta.setLore(lore);
                 potionMeta.setColor(Color.AQUA);

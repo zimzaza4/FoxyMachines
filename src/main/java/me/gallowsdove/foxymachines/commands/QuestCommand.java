@@ -14,7 +14,7 @@ import java.util.List;
 
 public class QuestCommand extends AbstractCommand {
     public QuestCommand() {
-        super("quest", "Prints your current quest.", false);
+        super("quest", "输入当前任务", false);
     }
 
     @Override
@@ -30,8 +30,8 @@ public class QuestCommand extends AbstractCommand {
         } else if (SlimefunUtils.isItemSimilar(p.getInventory().getItemInMainHand(), Items.CELESTIAL_SWORD, false, false)) {
             QuestUtils.sendQuestLine(p, Items.CELESTIAL_SWORD);
         } else {
-            p.sendMessage(ChatColor.LIGHT_PURPLE + "You need to be holding the " + ChatColor.RED + "Chaos Sword" +
-                    ChatColor.LIGHT_PURPLE + " or the " + ChatColor.YELLOW + "Celestial Sword" + ChatColor.LIGHT_PURPLE + " to view your quest.");
+            p.sendMessage(ChatColor.LIGHT_PURPLE + "你需要拿着 " + ChatColor.RED + "魔法剑" +
+                    ChatColor.LIGHT_PURPLE + " 或者 " + ChatColor.YELLOW + "天使之剑" + ChatColor.LIGHT_PURPLE + " 来查看任务");
         }
     }
 

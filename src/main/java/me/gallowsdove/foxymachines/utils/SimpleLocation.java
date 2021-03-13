@@ -1,21 +1,20 @@
 package me.gallowsdove.foxymachines.utils;
 
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import me.gallowsdove.foxymachines.FoxyMachines;
+import java.util.UUID;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import me.gallowsdove.foxymachines.FoxyMachines;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import java.util.UUID;
-
-@AllArgsConstructor
 @EqualsAndHashCode
 public class SimpleLocation {
 
@@ -33,7 +32,15 @@ public class SimpleLocation {
     @Getter
     private final String worldUUID;
 
-    @Nonnull
+    public SimpleLocation(int x, int y, int z, String worldUUID) {
+		this.x = x;
+		this.y = y;
+		this.z = z;
+		this.worldUUID = worldUUID;
+		
+	}
+
+	@Nonnull
     public Block toBlock() {
         return Bukkit.getServer().getWorld(UUID.fromString(this.worldUUID)).getBlockAt(this.x, this.y, this.z);
     }
@@ -54,4 +61,20 @@ public class SimpleLocation {
             return null;
         }
     }
+
+	public String getWorldUUID() {
+		return worldUUID;
+	}
+
+	public int getZ() {
+		return z;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
 }
