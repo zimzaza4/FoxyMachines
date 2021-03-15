@@ -91,7 +91,12 @@ public final class ForcefieldDome extends SlimefunItem implements EnergyNetCompo
                 BlockStorage.addBlockInfo(b, "active", "false");
                 BlockStorage.addBlockInfo(b, "cooldown", "false");
                 domeLocations.add(new SimpleLocation(b));
-                saveDomeLocations();
+                try {
+					saveDomeLocations();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
             }
         };
     }

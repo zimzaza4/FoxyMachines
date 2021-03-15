@@ -5,7 +5,6 @@ import java.io.IOException;
 
 import javax.annotation.Nonnull;
 
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import io.github.mooy1.infinitylib.command.CommandManager;
@@ -18,13 +17,17 @@ import me.gallowsdove.foxymachines.commands.SacrificialAltarCommand;
 import me.gallowsdove.foxymachines.commands.SummonCommand;
 import me.gallowsdove.foxymachines.implementation.machines.ForcefieldDome;
 import me.gallowsdove.foxymachines.implementation.tools.BerryBushTrimmer;
-import me.gallowsdove.foxymachines.listeners.*;
+import me.gallowsdove.foxymachines.listeners.ArmorListener;
+import me.gallowsdove.foxymachines.listeners.BerryBushListener;
+import me.gallowsdove.foxymachines.listeners.BoostedRailListener;
+import me.gallowsdove.foxymachines.listeners.ChunkLoaderListener;
+import me.gallowsdove.foxymachines.listeners.ForcefieldListener;
+import me.gallowsdove.foxymachines.listeners.PoseidonsFishingRodListener;
+import me.gallowsdove.foxymachines.listeners.RemoteControllerListener;
+import me.gallowsdove.foxymachines.listeners.SacrificialAltarListener;
+import me.gallowsdove.foxymachines.listeners.SwordListener;
 import me.gallowsdove.foxymachines.tickers.MobTicker;
 import me.gallowsdove.foxymachines.tickers.QuestTicker;
-import org.bukkit.plugin.java.JavaPlugin;
-
-import javax.annotation.Nonnull;
-import java.io.File;
 
 public class FoxyMachines extends JavaPlugin implements SlimefunAddon {
     private static FoxyMachines instance;
@@ -41,8 +44,6 @@ public class FoxyMachines extends JavaPlugin implements SlimefunAddon {
         CommandManager.setup("foxymachines", "foxymachines.admin", "/fm, /foxy",
                 new SacrificialAltarCommand(), new QuestCommand(), new SummonCommand());
 
-        Metrics metrics = PluginUtils.setupMetrics(10568);
-
         PluginUtils.registerListener(new ChunkLoaderListener());
         PluginUtils.registerListener(new BoostedRailListener());
         PluginUtils.registerListener(new BerryBushListener());
@@ -57,8 +58,18 @@ public class FoxyMachines extends JavaPlugin implements SlimefunAddon {
         ResearchSetup.INSTANCE.init();
 
         this.folderPath = getDataFolder().getAbsolutePath() + File.separator + "data-storage" + File.separator;
-        BerryBushTrimmer.loadTrimmedBlocks();
-        ForcefieldDome.loadDomeLocations();
+        try {
+			BerryBushTrimmer.loadTrimmedBlocks();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        try {
+			ForcefieldDome.loadDomeLocations();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         PluginUtils.runSync(() -> ForcefieldDome.INSTANCE.setupDomes());
         PluginUtils.scheduleRepeatingSync(new QuestTicker(), 10, 240);
         PluginUtils.scheduleRepeatingSync(new MobTicker(), 2);
@@ -67,8 +78,18 @@ public class FoxyMachines extends JavaPlugin implements SlimefunAddon {
     @SneakyThrows
     @Override
     public void onDisable() {
-        BerryBushTrimmer.saveTrimmedBlocks();
-        ForcefieldDome.saveDomeLocations();
+        try {
+			BerryBushTrimmer.saveTrimmedBlocks();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        try {
+			ForcefieldDome.saveDomeLocations();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         CustomBoss.removeBossBars();
     }
 

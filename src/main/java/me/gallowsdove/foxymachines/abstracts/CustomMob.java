@@ -42,13 +42,13 @@ public abstract class CustomMob {
     private static final NamespacedKey KEY = new NamespacedKey(FoxyMachines.getInstance(), "mob");
 
     @Nonnull
-    private final String id;
+    private String id;
     @Nonnull
-    private final String name;
+    private String name;
     @Getter
     @Nonnull
-    private final EntityType type;
-    private final int health;
+    private EntityType type;
+    private int health;
 
     public CustomMob(@Nonnull String id, @Nonnull String name, @Nonnull EntityType type, int health) {
 
