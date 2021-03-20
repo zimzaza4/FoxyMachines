@@ -20,6 +20,7 @@ import me.gallowsdove.foxymachines.implementation.tools.BerryBushTrimmer;
 import me.gallowsdove.foxymachines.listeners.ArmorListener;
 import me.gallowsdove.foxymachines.listeners.BerryBushListener;
 import me.gallowsdove.foxymachines.listeners.BoostedRailListener;
+import me.gallowsdove.foxymachines.listeners.BowListener;
 import me.gallowsdove.foxymachines.listeners.ChunkLoaderListener;
 import me.gallowsdove.foxymachines.listeners.ForcefieldListener;
 import me.gallowsdove.foxymachines.listeners.PoseidonsFishingRodListener;

@@ -106,7 +106,12 @@ public class BerryBushTrimmer extends SlimefunItem {
         String json = reader.readLine();
         reader.close();
 
-        Type type = new TypeToken<HashSet<SimpleLocation>>() {}.getType();
+        Type type = new TypeToken<HashSet<SimpleLocation>>() {
+
+			/**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;}.getType();
         TRIMMED_BLOCKS = gson.fromJson(json, type);
 
         if (TRIMMED_BLOCKS == null) {

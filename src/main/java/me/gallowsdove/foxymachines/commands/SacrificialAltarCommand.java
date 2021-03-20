@@ -1,15 +1,15 @@
 package me.gallowsdove.foxymachines.commands;
 
-import io.github.mooy1.infinitylib.command.AbstractCommand;
-import io.github.thebusybiscuit.slimefun4.libraries.paperlib.PaperLib;
-import org.bukkit.Bukkit;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.annotation.Nonnull;
+
 import org.bukkit.ChatColor;
-import org.bukkit.World;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import javax.annotation.Nonnull;
-import java.util.*;
+import io.github.mooy1.infinitylib.command.AbstractCommand;
 
 public class SacrificialAltarCommand extends AbstractCommand {
     public SacrificialAltarCommand() {
