@@ -559,6 +559,12 @@ public final class Items{
             "&aPixie Queen Spawn Egg"
     );
 
+    public static final SlimefunItemStack HEADLESS_HORSEMAN_SPAWN_EGG = new SlimefunItemStack(
+            "HEADLESS_HORSEMAN_SPAWN_EGG",
+            Material.SPIDER_SPAWN_EGG,
+            "&cHeadless Horseman Spawn Egg"
+    );
+
     public static final SlimefunItemStack PIXIE_QUEEN_HEART = new SlimefunItemStack(
             "PIXIE_QUEEN_HEART",
             Material.FERMENTED_SPIDER_EYE,
@@ -570,6 +576,33 @@ public final class Items{
             Material.SUGAR,
             "&ePixie Dust",
             "",
-            "Strength IV"
+            "&7Strength IV"
     );
+
+    public static final SlimefunItemStack VILE_PUMPKIN = new SlimefunItemStack(
+            "VILE_PUMPKIN",
+            Material.CARVED_PUMPKIN,
+            "&cVile Pumpkin"
+    );
+
+    public static final SlimefunItemStack VILE_SEEDS = new SlimefunItemStack(
+            "VILE_SEEDS",
+            Material.MELON_SEEDS,
+            "&cVile Seeds",
+            "",
+            "&7Health Boost V"
+    );
+
+    public static final SlimefunItemStack ACRI_ARCUM = new SlimefunItemStack(
+            "ACRI_ARCUM",
+            Material.BOW,
+            "&eAcri Arcum",
+            "",
+            "&7Damage III",
+            "&7Armor Piercing II"
+    );
+    static {
+        ACRI_ARCUM.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 7);
+        ACRI_ARCUM.addUnsafeEnchantment(Enchantment.ARROW_INFINITE, 1);
+    }
 }

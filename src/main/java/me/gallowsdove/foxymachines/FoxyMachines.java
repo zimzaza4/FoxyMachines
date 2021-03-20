@@ -53,6 +53,7 @@ public class FoxyMachines extends JavaPlugin implements SlimefunAddon {
         PluginUtils.registerListener(new SwordListener());
         PluginUtils.registerListener(new PoseidonsFishingRodListener());
         PluginUtils.registerListener(new ArmorListener());
+        PluginUtils.registerListener(new BowListener());
 
         ItemSetup.INSTANCE.init();
         ResearchSetup.INSTANCE.init();
