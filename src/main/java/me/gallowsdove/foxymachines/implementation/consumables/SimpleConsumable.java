@@ -21,7 +21,7 @@ public class SimpleConsumable extends SimpleSlimefunItem<ItemUseHandler> {
 
     @ParametersAreNonnullByDefault
     public SimpleConsumable(SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, PotionEffect[] effects, int amount) {
-        super(Items.category, item, recipeType, recipe, new SlimefunItemStack(item, amount));
+        super(Items.CATEGORY, item, recipeType, recipe, new SlimefunItemStack(item, amount));
         this.effects = effects;
     }
 
@@ -33,12 +33,11 @@ public class SimpleConsumable extends SimpleSlimefunItem<ItemUseHandler> {
             public void onRightClick(PlayerRightClickEvent e) {
                 e.cancel();
                 Player p = e.getPlayer();
-                ItemStack item = p.getInventory().getItemInMainHand();
-                if (item.getAmount() == 1) {
-                    p.getInventory().setItemInMainHand(null);
-                } else {
-                    item.setAmount(item.getAmount() - 1);
-                }
+
+                ItemStack item = e.getInteractEvent().getItem();
+
+                item.setAmount(item.getAmount() - 1);
+
                 double health = p.getHealth();
                 p.addPotionEffects(Arrays.asList(effects));
                 p.setHealth(health);

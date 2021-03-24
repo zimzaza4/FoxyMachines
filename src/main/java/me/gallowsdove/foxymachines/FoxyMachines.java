@@ -17,18 +17,14 @@ import me.gallowsdove.foxymachines.commands.SacrificialAltarCommand;
 import me.gallowsdove.foxymachines.commands.SummonCommand;
 import me.gallowsdove.foxymachines.implementation.machines.ForcefieldDome;
 import me.gallowsdove.foxymachines.implementation.tools.BerryBushTrimmer;
-import me.gallowsdove.foxymachines.listeners.ArmorListener;
-import me.gallowsdove.foxymachines.listeners.BerryBushListener;
-import me.gallowsdove.foxymachines.listeners.BoostedRailListener;
-import me.gallowsdove.foxymachines.listeners.BowListener;
-import me.gallowsdove.foxymachines.listeners.ChunkLoaderListener;
-import me.gallowsdove.foxymachines.listeners.ForcefieldListener;
-import me.gallowsdove.foxymachines.listeners.PoseidonsFishingRodListener;
-import me.gallowsdove.foxymachines.listeners.RemoteControllerListener;
-import me.gallowsdove.foxymachines.listeners.SacrificialAltarListener;
-import me.gallowsdove.foxymachines.listeners.SwordListener;
-import me.gallowsdove.foxymachines.tickers.MobTicker;
-import me.gallowsdove.foxymachines.tickers.QuestTicker;
+import me.gallowsdove.foxymachines.listeners.*;
+import me.gallowsdove.foxymachines.tasks.GhostBlockTask;
+import me.gallowsdove.foxymachines.tasks.MobTicker;
+import me.gallowsdove.foxymachines.tasks.QuestTicker;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import javax.annotation.Nonnull;
+import java.io.File;
 
 public class FoxyMachines extends JavaPlugin implements SlimefunAddon {
     private static FoxyMachines instance;
@@ -55,7 +51,7 @@ public class FoxyMachines extends JavaPlugin implements SlimefunAddon {
         PluginUtils.registerListener(new PoseidonsFishingRodListener());
         PluginUtils.registerListener(new ArmorListener());
         PluginUtils.registerListener(new BowListener());
-
+        
         ItemSetup.INSTANCE.init();
         ResearchSetup.INSTANCE.init();
 
@@ -75,6 +71,7 @@ public class FoxyMachines extends JavaPlugin implements SlimefunAddon {
         PluginUtils.runSync(() -> ForcefieldDome.INSTANCE.setupDomes());
         PluginUtils.scheduleRepeatingSync(new QuestTicker(), 10, 240);
         PluginUtils.scheduleRepeatingSync(new MobTicker(), 2);
+        PluginUtils.scheduleRepeatingAsync(new GhostBlockTask(), 100);
     }
 
     @SneakyThrows
