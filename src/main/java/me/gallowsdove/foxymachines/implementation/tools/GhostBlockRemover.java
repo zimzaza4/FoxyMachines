@@ -1,5 +1,14 @@
 package me.gallowsdove.foxymachines.implementation.tools;
 
+import javax.annotation.Nonnull;
+
+import org.apache.commons.lang.StringUtils;
+import org.bukkit.Material;
+import org.bukkit.entity.FallingBlock;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.persistence.PersistentDataType;
+
 import io.github.thebusybiscuit.slimefun4.core.handlers.EntityInteractHandler;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import me.gallowsdove.foxymachines.Items;
@@ -7,15 +16,6 @@ import me.gallowsdove.foxymachines.implementation.materials.GhostBlock;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
-import org.apache.commons.lang.StringUtils;
-import org.bukkit.Material;
-import org.bukkit.entity.FallingBlock;
-import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerInteractEntityEvent;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.persistence.PersistentDataType;
-
-import javax.annotation.Nonnull;
 
 public class GhostBlockRemover extends SlimefunItem {
 
@@ -37,7 +37,6 @@ public class GhostBlockRemover extends SlimefunItem {
         return new EntityInteractHandler() {
             @Override
             public void onInteract(PlayerInteractEntityEvent e, ItemStack itemStack, boolean b) {
-                Player p = e.getPlayer();
                 if (e.getRightClicked() instanceof FallingBlock) {
                     FallingBlock block = (FallingBlock) e.getRightClicked();
 
