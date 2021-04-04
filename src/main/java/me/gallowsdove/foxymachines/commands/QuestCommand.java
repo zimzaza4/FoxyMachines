@@ -1,6 +1,6 @@
 package me.gallowsdove.foxymachines.commands;
 
-import io.github.mooy1.infinitylib.command.AbstractCommand;
+import io.github.mooy1.infinitylib.commands.AbstractCommand;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import me.gallowsdove.foxymachines.Items;
 import me.gallowsdove.foxymachines.utils.QuestUtils;
@@ -9,12 +9,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
-import java.util.ArrayList;
 import java.util.List;
 
 public class QuestCommand extends AbstractCommand {
     public QuestCommand() {
-        super("quest", "输入当前任务", false);
+        super("quest", "输入当前任务", "foxymachines.info");
     }
 
     @Override
@@ -35,9 +34,6 @@ public class QuestCommand extends AbstractCommand {
         }
     }
 
-    @Nonnull
     @Override
-    public List<String> onTab(@Nonnull CommandSender commandSender, @Nonnull String[] strings) {
-        return new ArrayList<String>() ;
-    }
+    public void onTab(@Nonnull CommandSender commandSender, @Nonnull String[] strings, @Nonnull List<String> list) { }
 }

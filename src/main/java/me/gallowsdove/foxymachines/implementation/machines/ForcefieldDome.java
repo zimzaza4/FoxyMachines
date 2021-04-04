@@ -137,7 +137,7 @@ public final class ForcefieldDome extends SlimefunItem implements EnergyNetCompo
                                 e.getPlayer().sendMessage(ChatColor.LIGHT_PURPLE + "屏障已生成");
 
                                 BlockStorage.addBlockInfo(b, "cooldown", "true");
-                                Bukkit.getScheduler().runTaskLater(FoxyMachines.getInstance(), () ->
+                                FoxyMachines.getInstance().runAsync(() ->
                                         BlockStorage.addBlockInfo(b, "cooldown", "false"), 200);
                             } else {
                                 e.getPlayer().sendMessage(ChatColor.LIGHT_PURPLE + "电力不足");
@@ -147,7 +147,7 @@ public final class ForcefieldDome extends SlimefunItem implements EnergyNetCompo
                             e.getPlayer().sendMessage(ChatColor.LIGHT_PURPLE + "屏障未生成");
 
                             BlockStorage.addBlockInfo(b, "cooldown", "true");
-                            Bukkit.getScheduler().runTaskLater(FoxyMachines.getInstance(), () ->
+                            FoxyMachines.getInstance().runAsync(() ->
                                     BlockStorage.addBlockInfo(b, "cooldown", "false"), 200);
                         }
                     } else {
@@ -211,7 +211,7 @@ public final class ForcefieldDome extends SlimefunItem implements EnergyNetCompo
                     p.sendMessage(ChatColor.LIGHT_PURPLE + "屏障已生成");
 
                     BlockStorage.addBlockInfo(b, "cooldown", "true");
-                    Bukkit.getScheduler().runTaskLater(FoxyMachines.getInstance(), () ->
+                    FoxyMachines.getInstance().runAsync( () ->
                             BlockStorage.addBlockInfo(b, "cooldown", "false"), 200);
                 } else {
                     p.sendMessage(ChatColor.LIGHT_PURPLE + "电力不足");
@@ -221,7 +221,7 @@ public final class ForcefieldDome extends SlimefunItem implements EnergyNetCompo
                 p.sendMessage(ChatColor.LIGHT_PURPLE + "屏障未生成");
 
                 BlockStorage.addBlockInfo(b, "cooldown", "true");
-                Bukkit.getScheduler().runTaskLater(FoxyMachines.getInstance(), () ->
+                FoxyMachines.getInstance().runAsync( () ->
                         BlockStorage.addBlockInfo(b, "cooldown", "false"), 200);
             }
         } else {

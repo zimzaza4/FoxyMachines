@@ -1,19 +1,16 @@
 package me.gallowsdove.foxymachines.commands;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
+import io.github.mooy1.infinitylib.commands.AbstractCommand;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import io.github.mooy1.infinitylib.command.AbstractCommand;
+import javax.annotation.Nonnull;
+import java.util.List;
 
 public class SacrificialAltarCommand extends AbstractCommand {
     public SacrificialAltarCommand() {
-        super("altar", "Gives you a link to the Sacrificial Altar", false);
+        super("altar", "Gives you a link to the Sacrificial Altar", "foxymachines.info");
     }
 
     @Override
@@ -27,9 +24,6 @@ public class SacrificialAltarCommand extends AbstractCommand {
         p.sendMessage(ChatColor.LIGHT_PURPLE + "https://youtu.be/KbwCCpzq3O0");
     }
 
-    @Nonnull
     @Override
-    public List<String> onTab(@Nonnull CommandSender commandSender, @Nonnull String[] strings) {
-        return new ArrayList<String>() ;
-    }
+    public void onTab(@Nonnull CommandSender commandSender, @Nonnull String[] strings, @Nonnull List<String> list) { }
 }
