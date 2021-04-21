@@ -28,7 +28,7 @@ public final class Items{
 
     public static Category GHOST_BLOCKS_CATEGORY = new Category(
             new NamespacedKey(FoxyMachines.getInstance(), "ghost_blocks"),
-            new CustomItem(Material.GLASS, "&5Ghost Blocks", "", "&a> Click to open"));
+            new CustomItem(Material.GLASS, "&5灵魂方块", "", "&a> 点击打开"));
 
     public static final SlimefunItemStack ELECTRIC_WIND_STAFF = new SlimefunItemStack(
             "ELECTRIC_WIND_STAFF",
@@ -560,27 +560,27 @@ public final class Items{
     public static final SlimefunItemStack PIXIE_QUEEN_SPAWN_EGG = new SlimefunItemStack(
             "PIXIE_QUEEN_SPAWN_EGG",
             Material.CREEPER_SPAWN_EGG,
-            "&aPixie Queen Spawn Egg"
+            "&a精灵女王刷怪蛋"
     );
 
     public static final SlimefunItemStack HEADLESS_HORSEMAN_SPAWN_EGG = new SlimefunItemStack(
             "HEADLESS_HORSEMAN_SPAWN_EGG",
             Material.SPIDER_SPAWN_EGG,
-            "&cHeadless Horseman Spawn Egg"
+            "&c死亡骑士刷怪蛋"
     );
 
     public static final SlimefunItemStack PIXIE_QUEEN_HEART = new SlimefunItemStack(
             "PIXIE_QUEEN_HEART",
             Material.FERMENTED_SPIDER_EYE,
-            "&4Pixie Queen Heart"
+            "&4精灵女王之心"
     );
 
     public static final SlimefunItemStack PIXIE_DUST = new SlimefunItemStack(
             "PIXIE_DUST",
             Material.SUGAR,
-            "&ePixie Dust",
+            "&e精灵粉末",
             "",
-            "&7Strength IV"
+            "&7力量 IV"
     );
 
     public static final SlimefunItemStack VILE_PUMPKIN = new SlimefunItemStack(

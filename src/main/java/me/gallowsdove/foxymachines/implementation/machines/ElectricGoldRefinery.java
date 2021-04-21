@@ -346,7 +346,7 @@ public class ElectricGoldRefinery extends SlimefunItem implements EnergyNetCompo
         }
 
         preset.addItem(23, new CustomItem(Material.BLACK_STAINED_GLASS_PANE, " "), ChestMenuUtils.getEmptyClickHandler());
-        preset.addItem(46, new CustomItem(Material.RED_STAINED_GLASS_PANE, "&cNONE"), ChestMenuUtils.getEmptyClickHandler());
+        preset.addItem(46, new CustomItem(Material.RED_STAINED_GLASS_PANE, "&c无"), ChestMenuUtils.getEmptyClickHandler());
 
         NamespacedKey key = new NamespacedKey(FoxyMachines.getInstance(), "nonstackable");
 
