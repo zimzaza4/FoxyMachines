@@ -387,9 +387,9 @@ final class ItemSetup {
                     SlimefunItemStack stack = new SlimefunItemStack(
                             "GHOST_BLOCK_" + material.name().toUpperCase(),
                             material,
-                            "&fGhost Block: &6" + StringUtils.capitalize(material.name().replace("_", " ").toLowerCase()),
+                            "&f灵魂方块: &6" + StringUtils.capitalize(material.name().replace("_", " ").toLowerCase()),
                             "",
-                            "&7An intangible block.");
+                            "&7一种无形的方块");
 
                     new GhostBlock(stack).register(FoxyMachines.getInstance());
                 }

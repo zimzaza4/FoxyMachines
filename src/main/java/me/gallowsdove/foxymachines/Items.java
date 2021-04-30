@@ -578,7 +578,7 @@ public final class Items{
     public static final SlimefunItemStack PIXIE_DUST = new SlimefunItemStack(
             "PIXIE_DUST",
             Material.SUGAR,
-            "&e精灵粉末",
+            "&e精灵药水",
             "",
             "&7力量 IV"
     );
@@ -586,24 +586,24 @@ public final class Items{
     public static final SlimefunItemStack VILE_PUMPKIN = new SlimefunItemStack(
             "VILE_PUMPKIN",
             Material.CARVED_PUMPKIN,
-            "&cVile Pumpkin"
+            "&c魔法南瓜"
     );
 
     public static final SlimefunItemStack VILE_SEEDS = new SlimefunItemStack(
             "VILE_SEEDS",
             Material.MELON_SEEDS,
-            "&cVile Seeds",
+            "&c魔法种子",
             "",
-            "&7Health Boost V"
+            "&7生命提升 V"
     );
 
     public static final SlimefunItemStack ACRI_ARCUM = new SlimefunItemStack(
             "ACRI_ARCUM",
             Material.BOW,
-            "&eAcri Arcum",
+            "&e锋利的弓",
             "",
-            "&7Damage III",
-            "&7Armor Piercing II"
+            "&7伤害 III",
+            "&7盔甲穿透 II"
     );
     static {
         ACRI_ARCUM.addUnsafeEnchantment(Enchantment.ARROW_DAMAGE, 7);
@@ -613,8 +613,8 @@ public final class Items{
     public static final SlimefunItemStack GHOST_BLOCK_REMOVER = new SlimefunItemStack(
             "GHOST_BLOCK_REMOVER",
             Material.CLOCK,
-            "&eGhost Block Remover",
+            "&e灵魂方块移除器",
             "",
-            "&7Right click to remove a Ghost Block."
+            "&7右键移除一个灵魂方块"
     );
 }
