@@ -526,7 +526,7 @@ public final class Items{
     public static final SlimefunItemStack POLAR_FOX_HIDE = new SlimefunItemStack(
             "POLAR_FOX_HIDE",
             Material.SNOWBALL,
-            "&f北极熊皮"
+            "&f北极狐皮"
     );
 
     public static final SlimefunItemStack MAGMA_ESSENCE = new SlimefunItemStack(
