@@ -1,55 +1,110 @@
 package me.gallowsdove.foxymachines;
 
-import me.gallowsdove.foxymachines.listeners.ChunkLoaderPlaceListener;
-import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.plugin.java.JavaPlugin;
-import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
-import me.mrCookieSlime.Slimefun.cscorelib2.updater.GitHubBuildsUpdater;
-import me.mrCookieSlime.Slimefun.cscorelib2.config.Config;
-import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
+import io.github.mooy1.infinitylib.AbstractAddon;
+import io.github.mooy1.infinitylib.commands.AbstractCommand;
+import lombok.SneakyThrows;
+import me.gallowsdove.foxymachines.abstracts.CustomBoss;
+import me.gallowsdove.foxymachines.commands.KillallCommand;
+import me.gallowsdove.foxymachines.commands.QuestCommand;
+import me.gallowsdove.foxymachines.commands.SacrificialAltarCommand;
+import me.gallowsdove.foxymachines.commands.SummonCommand;
+import me.gallowsdove.foxymachines.implementation.machines.ForcefieldDome;
+import me.gallowsdove.foxymachines.implementation.tools.BerryBushTrimmer;
+import me.gallowsdove.foxymachines.listeners.*;
+import me.gallowsdove.foxymachines.tasks.GhostBlockTask;
+import me.gallowsdove.foxymachines.tasks.MobTicker;
+import me.gallowsdove.foxymachines.tasks.QuestTicker;
 
-public class FoxyMachines extends JavaPlugin implements SlimefunAddon {
-  private static FoxyMachines instance;
+import javax.annotation.Nonnull;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-  @Override
-  public void onEnable() {
-    instance = this;
-    // Read something from your config.yml
-    Config cfg = new Config(this);
+public class FoxyMachines extends AbstractAddon {
+    private static FoxyMachines instance;
 
-    if (cfg.getBoolean("options.auto-update") && getDescription().getVersion().startsWith("DEV - ")) {
-      new GitHubBuildsUpdater(this, getFile(), "GallowsDove/FoxyMachines/master/").start();
+    public String folderPath;
+
+    @SneakyThrows
+    @Override
+    public void onEnable() {
+        super.onEnable();
+
+        instance = this;
+
+        registerListener(new ChunkLoaderListener(), new BoostedRailListener(), new BerryBushListener(), new ForcefieldListener(),
+                new RemoteControllerListener(), new SacrificialAltarListener(), new SwordListener(), new PoseidonsFishingRodListener(),
+                new ArmorListener(), new BowListener());
+        
+        ItemSetup.INSTANCE.init();
+        ResearchSetup.INSTANCE.init();
+
+        this.folderPath = getDataFolder().getAbsolutePath() + File.separator + "data-storage" + File.separator;
+        try {
+			BerryBushTrimmer.loadTrimmedBlocks();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        try {
+			ForcefieldDome.loadDomeLocations();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        runSync(() -> ForcefieldDome.INSTANCE.setupDomes());
+        scheduleRepeatingAsync(new QuestTicker(), 10, 240);
+        scheduleRepeatingAsync(new GhostBlockTask(), 100);
+        if (getConfig().getBoolean("custom-mobs")) {
+            scheduleRepeatingSync(new MobTicker(), 2);
+        }
     }
 
-    getServer().getPluginManager().registerEvents(new ChunkLoaderPlaceListener(), this);
+    @Override
+    protected int getMetricsID() {
+        return 10568;
+    }
 
-    ItemSetup.INSTANCE.init();
-    ResearchSetup.INSTANCE.init();
-  }
+    @Nonnull
+    @Override
+    protected String getGithubPath() {
+        return "GallowsDove/FoxyMachines/master";
+    }
 
-  @Override
-  public void onDisable() {
-    // Logic for disabling the plugin...
-  }
+    @Override
+    protected List<AbstractCommand> getSubCommands() {
+        ArrayList<AbstractCommand> commands = new ArrayList<AbstractCommand>(Arrays.asList(new QuestCommand(), new SacrificialAltarCommand()));
+        if (getConfig().getBoolean("custom-mobs")) {
+            commands.add(new SummonCommand());
+            commands.add(new KillallCommand());
+        }
+        return commands;
+    }
 
-  @Override
-  public String getBugTrackerURL() {
-    return "https://github.com/GallowsDove/FoxyMachines/issues";
-  }
+    @SneakyThrows
+    @Override
+    public void onDisable() {
+        try {
+			BerryBushTrimmer.saveTrimmedBlocks();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        try {
+			ForcefieldDome.saveDomeLocations();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        CustomBoss.removeBossBars();
+    }
 
-  @Override
-  public JavaPlugin getJavaPlugin() {
-    return this;
-  }
 
-  public static FoxyMachines getInstance() {
-    return instance;
-  }
 
+    @Nonnull
+    public static FoxyMachines getInstance() {
+        return instance;
+    }
 }
