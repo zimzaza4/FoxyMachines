@@ -53,5 +53,5 @@ jobs:
 
           name: FoxyMachines
 
-          path: target/FoxyMachines.jar
+          path: target/FoxyMachines v1.0.0.jar
 
