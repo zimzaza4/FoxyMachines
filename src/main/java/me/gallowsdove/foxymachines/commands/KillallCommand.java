@@ -1,6 +1,7 @@
 package me.gallowsdove.foxymachines.commands;
 
 import io.github.mooy1.infinitylib.commands.AbstractCommand;
+import me.gallowsdove.foxymachines.abstracts.CustomBoss;
 import me.gallowsdove.foxymachines.abstracts.CustomMob;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.LivingEntity;
@@ -16,11 +17,9 @@ public class KillallCommand extends AbstractCommand {
 
     @Override
     public void onExecute(@Nonnull CommandSender commandSender, @Nonnull String[] strings) {
-        if (!(commandSender instanceof Player) || strings.length != 1) {
+        if (!(commandSender instanceof Player p) || strings.length != 1) {
             return;
         }
-
-        Player p = (Player) commandSender;
 
         for (LivingEntity entity : p.getWorld().getLivingEntities()) {
             CustomMob mob = CustomMob.getByEntity(entity);
@@ -28,6 +27,8 @@ public class KillallCommand extends AbstractCommand {
                 entity.remove();
             }
         }
+
+        CustomBoss.removeBossBars();
     }
 
     @Override
