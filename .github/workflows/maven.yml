@@ -23,14 +23,12 @@ jobs:
     - name: Build with Maven
       run: mvn package --file pom.xml
 
-      - name: Archive artifacts (FoxyMachines)
+    - name: Archive artifacts (FoxyMachines)
 
-        uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v1
 
-        if: success()
+      if: success()
+      with:
 
-        with:
-
-          name: FoxyMachines
-
-          path: target/FoxyMachines v1.0.0.jar
+        name: FoxyMachines
+        path: target/FoxyMachines v1.0.0.jar
