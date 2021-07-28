@@ -278,3 +278,4 @@ public final class ForcefieldDome extends SlimefunItem implements EnergyNetCompo
     }
 
 }
+ 
