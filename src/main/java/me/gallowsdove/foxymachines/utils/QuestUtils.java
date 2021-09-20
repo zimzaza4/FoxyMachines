@@ -1,5 +1,10 @@
 package me.gallowsdove.foxymachines.utils;
 
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import me.gallowsdove.foxymachines.FoxyMachines;
+import me.gallowsdove.foxymachines.Items;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
