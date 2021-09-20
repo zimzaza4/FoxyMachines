@@ -1,15 +1,9 @@
 package me.gallowsdove.foxymachines.utils;
 
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import me.gallowsdove.foxymachines.FoxyMachines;
 import me.gallowsdove.foxymachines.Items;
-import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
-
-import javax.annotation.ParametersAreNonnullByDefault;
-
 import org.apache.commons.lang.Validate;
 import org.bukkit.ChatColor;
 import org.bukkit.NamespacedKey;
@@ -18,10 +12,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
-import lombok.Getter;
-import me.gallowsdove.foxymachines.FoxyMachines;
-import me.gallowsdove.foxymachines.Items;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
+import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class QuestUtils {
     public static NamespacedKey KEY = new NamespacedKey(FoxyMachines.getInstance(), "quest");
